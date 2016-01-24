@@ -1,0 +1,2 @@
+﻿class MemoryUsageVM extends LiveChartVM {
+}

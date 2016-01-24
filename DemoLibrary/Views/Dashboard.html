@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html style="height:100%">
+<head>
+   <title>dotNetify-Nancy Demo</title>
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href="/Content/css/bootstrap.min.css" rel="stylesheet">
+   <script src="/Scripts/require.js" data-main="/Scripts/app"></script>
+</head>
+<body class="container-fluid" style="height:inherit;background: #f0f0f0">
+   <h3>Process Monitor Dashboard</h3>
+   <div data-master-vm="DashboardVM" style="height:90%">
+      <div class="row" style="height:inherit">
+         <!-- Process List -->
+         <div data-vm="ProcessVM" class="col-md-5" style="height:100%;overflow-y:auto">
+            <table class="table table-hover table-striped panel-primary">
+               <thead>
+                  <tr>
+                     <th>ID</th>
+                     <th>Process Name</th>
+                  </tr>
+               </thead>
+               <tbody data-bind="foreach: Processes">
+                  <tr data-bind="css: { 'active info': $root.SelectedProcessId() == $data.Id() }, vmCommand: { SelectedProcessId: Id }">
+                     <td><span data-bind="text: Id"></span></td>
+                     <td><span data-bind="text: Name"></span></td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
+         <div class="col-md-1"></div>
+         <div class="col-md-5">
+            <!-- CPU Usage Panel -->
+            <div data-vm="CpuUsageVM" class="row panel">
+               <div class="panel-heading">
+                  <span data-bind="text: Title"></span>
+                  <div style="font-size:x-large"><span data-bind="text: _currentValue"></span><span>%</span></div>
+               </div>
+               <div class="panel-body">
+                  <canvas style="max-width:100%" data-bind="vmOn: { Data: updateChart }" />
+               </div>
+            </div>
+            <!-- Memory Usage Panel -->
+            <div data-vm="MemoryUsageVM" class="row panel">
+               <div class="panel-heading">
+                  <span data-bind="text: Title"></span>
+                  <div style="font-size:x-large"><span data-bind="text: _currentValue"></span><span> KBytes</span></div>
+               </div>
+               <div class="panel-body">
+                  <canvas style="max-width:100%" data-bind="vmOn: { Data: updateChart }" />
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</body>
+</html>

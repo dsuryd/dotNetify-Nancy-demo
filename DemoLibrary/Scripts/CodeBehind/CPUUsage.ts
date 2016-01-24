@@ -1,0 +1,2 @@
+﻿class CpuUsageVM extends LiveChartVM {
+}
