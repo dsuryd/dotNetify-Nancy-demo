@@ -18,12 +18,8 @@ Install-Package DotNetify -pre
    - Debug build: ..\bin\debug
    - Release build: ..\bin\release
 
-- In post-build event, ensure the Typescript files are compiled, then copy all static content files to the output path:
+- In post-build event, copy all static content files to the output path:
 ```
-dir "$(ProjectDir)Scripts\CodeBehind\*.ts" /b /s > ts-files.txt
-tsc @ts-files.txt
-del ts-files.txt
-
 xcopy /E /Y "$(ProjectDir)Views" "$(ProjectDir)$(OutDir)Views\*"
 xcopy /E /Y "$(ProjectDir)Content" "$(ProjectDir)$(OutDir)Content\*"
 xcopy /E /Y "$(ProjectDir)Scripts" "$(ProjectDir)$(OutDir)Scripts\*"

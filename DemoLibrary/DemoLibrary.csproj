@@ -97,6 +97,9 @@
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\chart.min.js" />
+    <Content Include="Scripts\CodeBehind\CPUUsage.js" />
+    <Content Include="Scripts\CodeBehind\LiveChart.js" />
+    <Content Include="Scripts\CodeBehind\MemoryUsage.js" />
     <Content Include="Scripts\dotnetify.js" />
     <Content Include="Scripts\dotnetify.router.js" />
     <Content Include="Scripts\jquery-1.11.3.min.js" />
@@ -150,11 +153,7 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>dir "$(ProjectDir)Scripts\CodeBehind\*.ts" /b /s &gt; ts-files.txt
-tsc @ts-files.txt
-del ts-files.txt
-
-xcopy /E /Y "$(ProjectDir)Views" "$(ProjectDir)$(OutDir)Views\*"
+    <PostBuildEvent>xcopy /E /Y "$(ProjectDir)Views" "$(ProjectDir)$(OutDir)Views\*"
 xcopy /E /Y "$(ProjectDir)Content" "$(ProjectDir)$(OutDir)Content\*"
 xcopy /E /Y "$(ProjectDir)Scripts" "$(ProjectDir)$(OutDir)Scripts\*"</PostBuildEvent>
   </PropertyGroup>
