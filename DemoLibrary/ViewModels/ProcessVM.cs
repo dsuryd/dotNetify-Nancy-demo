@@ -14,9 +14,28 @@ namespace DemoLibrary
          public string Name { get; set; }
       }
 
+      public bool IsLoading { get; set; }
+
+      public string SearchString
+      {
+         get { return Get<string>(); }
+         set
+         {
+            Set(value);
+            Changed(() => Processes);
+         }
+      }
+
       public List<ProcessItem> Processes
       {
-         get { return Process.GetProcesses().OrderBy(i => i.ProcessName).ToList().ConvertAll(i => new ProcessItem { Id = i.Id, Name = i.ProcessName }); }
+         get
+         {
+            return Process.GetProcesses()
+               .Where(i => String.IsNullOrEmpty(SearchString) || i.ProcessName.ToLower().StartsWith(SearchString.ToLower()))
+               .OrderBy(i => i.ProcessName)
+               .ToList()
+               .ConvertAll(i => new ProcessItem { Id = i.Id, Name = i.ProcessName });
+         }
       }
 
       public int SelectedProcessId

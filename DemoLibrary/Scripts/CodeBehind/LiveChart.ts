@@ -2,9 +2,6 @@
 
 class LiveChartVM {
 
-   // Constant for max number of data the chart can display.
-   MAX_DATA: number = 50; 
-
    // Local observable to display current data value.
    _currentValue: number = 0;
 
@@ -23,7 +20,7 @@ class LiveChartVM {
       else {
          vm._chart.addData([data], "");
          vm._counter++;
-         if (vm._counter > this.MAX_DATA)
+         if (vm._counter > 30)
             // Remove the oldest data.
             vm._chart.removeData();
       }

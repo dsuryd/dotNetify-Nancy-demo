@@ -9,25 +9,32 @@
    <script src="/Scripts/require.js" data-main="/Scripts/app"></script>
 </head>
 <body class="container-fluid" style="height:inherit;background: #f0f0f0">
-   <h3>Process Monitor Dashboard</h3>
-   <div data-master-vm="DashboardVM" style="height:90%">
+   <h3>Process Monitor Example</h3>
+   <div data-master-vm="DashboardVM" style="height:92%">
       <div class="row" style="height:inherit">
          <!-- Process List -->
-         <div data-vm="ProcessVM" class="col-md-5" style="height:100%;overflow-y:auto">
-            <table class="table table-hover table-striped panel-primary">
-               <thead>
-                  <tr>
-                     <th>ID</th>
-                     <th>Process Name</th>
-                  </tr>
-               </thead>
-               <tbody data-bind="foreach: Processes">
-                  <tr data-bind="css: { 'active info': $root.SelectedProcessId() == $data.Id() }, vmCommand: { SelectedProcessId: Id }">
-                     <td><span data-bind="text: Id"></span></td>
-                     <td><span data-bind="text: Name"></span></td>
-                  </tr>
-               </tbody>
-            </table>
+         <div data-vm="ProcessVM" class="col-md-5" style="height:inherit">
+            <div class="alert alert-info" data-bind="visible: IsLoading"><b>Loading. Please wait....</b></div>
+            <div class="input-group">
+               <span class="input-group-addon">Search:</span>
+               <input class="form-control" type="text" data-bind="textInput: SearchString" placeholder="Type a process name here" />
+            </div>
+            <div style="height:100%; overflow-y:auto">
+               <table class="table table-hover table-striped panel-primary">
+                  <thead>
+                     <tr>
+                        <th style="width:100px">ID</th>
+                        <th>Process Name</th>
+                     </tr>
+                  </thead>
+                  <tbody data-bind="foreach: Processes">
+                     <tr data-bind="css: { 'active info': $root.SelectedProcessId() == $data.Id() }, vmCommand: { SelectedProcessId: Id }">
+                        <td><span data-bind="text: Id"></span></td>
+                        <td><span data-bind="text: Name"></span></td>
+                     </tr>
+                  </tbody>
+               </table>
+            </div>
          </div>
          <div class="col-md-1"></div>
          <div class="col-md-5">

@@ -16,7 +16,18 @@ namespace DemoLibrary
 
       public double Data
       {
-         get { return Math.Round((double)_cpuCounter.NextValue(), 2); }
+         get
+         {
+            try
+            {
+               return Math.Round((double)_cpuCounter.NextValue(), 2);
+            }
+            catch(Exception ex)
+            {
+               Trace.WriteLine(ex.Message);
+               return 0;
+            }
+         }
       }
 
       public int ProcessId

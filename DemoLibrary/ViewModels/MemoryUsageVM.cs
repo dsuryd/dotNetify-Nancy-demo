@@ -16,7 +16,18 @@ namespace DemoLibrary
 
       public double Data
       {
-         get { return Math.Round( _memoryCounter.NextValue() / 1024, 2 ); }
+         get
+         {
+            try
+            {
+               return Math.Round(_memoryCounter.NextValue() / 1024, 2);
+            }
+            catch(Exception ex)
+            {
+               Trace.WriteLine(ex.Message);
+               return 0;
+            }
+         }
       }
 
       public int ProcessId
