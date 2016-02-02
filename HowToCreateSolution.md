@@ -11,7 +11,7 @@ Install-Package DotNetify -pre
 
 - Enable TypeScript by adding the following to .csproj:
 ```
-<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" > 
+<Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" /> 
 ```
 
 - Set the output path to a common folder for all projects:

@@ -15,6 +15,7 @@ namespace DemoLibrary
          app.UseNancy();
 
          VMController.RegisterAssembly(typeof(HomeModule).Assembly);
+         VMController.RegisterAssembly(typeof(ExamplesLibrary.TreeViewVM).Assembly);
       }
 
       public static IDisposable Start(string url)
