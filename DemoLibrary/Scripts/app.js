@@ -10,7 +10,7 @@
       "signalr-hub": "/signalr/hubs?",
       "chart": "chart.min",
       "live-chart": "CodeBehind/LiveChart",
-      "cpu-usage": "CodeBehind/CpuUsage",
+      "cpu-usage": "CodeBehind/CPUUsage",
       "mem-usage": "CodeBehind/MemoryUsage",
    },
    shim: {
