@@ -31,7 +31,7 @@ namespace DemoLibrary
          get
          {
             return Process.GetProcesses()
-               .Where(i => String.IsNullOrEmpty(SearchString) || i.ProcessName.ToLower().StartsWith(SearchString.ToLower()))
+               .Where(i => String.IsNullOrEmpty(SearchString) || i.ProcessName.StartsWith(SearchString,StringComparison.InvariantCultureIgnoreCase))
                .OrderBy(i => i.ProcessName)
                .ToList()
                .ConvertAll(i => new ProcessItem { Id = i.Id, Name = i.ProcessName });
@@ -44,8 +44,7 @@ namespace DemoLibrary
          set
          {
             Set(value);
-            if (Selected != null)
-               Selected(this, value);
+            Selected?.Invoke(this, value);
          }
       }
 

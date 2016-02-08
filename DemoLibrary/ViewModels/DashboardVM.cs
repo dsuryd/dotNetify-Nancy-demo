@@ -11,12 +11,6 @@ namespace DemoLibrary
       private CpuUsageVM _cpuUsageVM = new CpuUsageVM();
       private ProcessVM _processVM = new ProcessVM();
 
-      public double[,] Data
-      {
-         get { return Get<double[,]>(); }
-         set { Set(value); }
-      }
-
       /// <summary>
       /// Constructor.
       /// </summary>

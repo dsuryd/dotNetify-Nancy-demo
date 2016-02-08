@@ -1,7 +1,6 @@
 ﻿using Nancy;
 using Nancy.Bootstrapper;
 using Nancy.Conventions;
-using Nancy.Session;
 using Nancy.TinyIoc;
 
 namespace DemoLibrary
@@ -12,7 +11,6 @@ namespace DemoLibrary
       {
          base.ApplicationStartup(container, pipelines);
          this.Conventions.StaticContentsConventions.Add(StaticContentConventionBuilder.AddDirectory("Scripts"));
-         CookieBasedSessions.Enable(pipelines);
       }
    }
 }
