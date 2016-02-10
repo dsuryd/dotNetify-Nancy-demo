@@ -13,7 +13,7 @@ Install-Package DotNetify -pre
 ```
 <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" /> 
 ```
-*Note: TypeScript files are only built on save - as a workaround, include the compiled JS files in the solution.*
+*Note: TypeScript files are only built on save - as a workaround, include the transpiled JS files in the solution.*
 
 - Set the output path to a common folder for all projects:
    - Debug build: ..\bin\debug
