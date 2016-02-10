@@ -25,7 +25,7 @@
    }
 });
 
-require(['jquery', 'dotnetify', 'chart', 'live-chart', 'cpu-usage', 'mem-usage'], function ($) {
+require(['jquery', 'dotnetify', 'cpu-usage', 'mem-usage'], function ($) {
    $(function () {
       dotnetify.debug = true;
    });
