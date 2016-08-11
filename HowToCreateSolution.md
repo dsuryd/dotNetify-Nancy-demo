@@ -6,7 +6,7 @@
 ```
 Install-Package Microsoft.Owin.Hosting
 Install-Package Nancy.Owin
-Install-Package DotNetify -pre
+Install-Package DotNetify
 ```
 
 - Enable TypeScript by adding the following to .csproj:
